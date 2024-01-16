@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerPolicies();
+
+        Gate::before(function ($admin, $ability) {
+          return $admin->email == 'ulises@test.com' ?? null;
+        //  return $admin->hasRole == 'ulises@test.com' ?? null;
+      });
         //
     }
 }
