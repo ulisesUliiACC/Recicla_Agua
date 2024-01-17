@@ -5,5 +5,8 @@
 _pasos para poder iniciar  proyecto  en laravel 10 
 
 _para el usuario superAdmin
-* comando php artisan migrate:fresh --seed --seeder=AdminSeeder 
+* comando
+```
+ php artisan migrate:fresh --seed --seeder=AdminSeeder 
+```
 
