@@ -24,10 +24,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::before(function ($admin, $ability) {
-          return $admin->email == 'ulises@test.com' ?? null;
+        Gate::before(function ($user, $ability) {
+          return $user->email == 'ulises@test.com '  ?? null;
         //  return $admin->hasRole == 'ulises@test.com' ?? null;
-      });
+        });
+
+        Gate::before(function ($user, $ability) {
+          return $user->email == 'malvais@test.com '  ?? null;
+        });
         //
     }
 }

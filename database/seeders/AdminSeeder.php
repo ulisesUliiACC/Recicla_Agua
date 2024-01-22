@@ -19,6 +19,12 @@ class AdminSeeder extends Seeder
         'password' => bcrypt('ulises2415'),
     ]);
 
+    user::create([
+      'name' => 'Malwadisco',
+      'email' => 'malvais@test.com',
+      'password' => bcrypt('221910'),
+  ]);
+
     $this->command->info('Super Admin creado exitosamente.');
     }
 }
