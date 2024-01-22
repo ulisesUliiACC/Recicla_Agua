@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id('id_empresas');
             $table->string('clave');
             $table->string('industria');
-            $table->string('descripcion');
             $table->integer('monitoreo');
             $table->string('descarga');
             $table->integer('horas');
@@ -34,9 +33,9 @@ return new class extends Migration
             $table->string('color');
             $table->string('metales');
             $table->integer('CN');
-            $table->integer('CR+6');
-            $table->integer('CN-6');
-            $table->integer('P-T');
+            $table->integer('CR_6');
+            $table->integer('CN_6');
+            $table->integer('P_T');
             $table->integer('Cu');
             $table->integer('Ni');
             $table->integer('Cd');
