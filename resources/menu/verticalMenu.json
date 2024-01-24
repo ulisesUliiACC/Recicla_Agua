@@ -1,14 +1,19 @@
 {
   "menu": [
     {
-      "url": "/",
-      "name": "Dashboards",
+      "url": "/dashboard",
+      "name": "Dashboard",
       "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "dashboard",
-      "badge": [
-        "danger",
-        "5"
-      ]
+      "slug": "dashboard"
+    },
+    {
+      "menuHeader": "Usuarios"
+    },
+    {
+      "url": "minitoreo/usuarios",
+      "name": " Listado de usuarios",
+      "icon": "menu-icon bx bxs-user-detail bx-flip-horizontal bx-tada",
+      "slug": "app-email"
     },
     {
       "menuHeader": "Empresas"
@@ -17,8 +22,7 @@
       "url": "monitoreo/empresas",
       "name": " Listado de empresas",
       "icon": "menu-icon bx bx-hard-hat",
-      "slug": "app-email",
-      "target": "_blank"
+      "slug": "app-email"
     },
     {
       "menuHeader": "Reportes"
@@ -35,11 +39,7 @@
       "icon": "menu-icon tf-icons bx bx-grid",
       "name": "Datatables",
       "slug": "tables-datatables",
-      "target": "_blank",
-      "badge": [
-        "label-primary fs-tiny",
-        "Pro"
-      ]
+      "target": "_blank"
     },
     {
       "menuHeader": "Roles y Permisos"

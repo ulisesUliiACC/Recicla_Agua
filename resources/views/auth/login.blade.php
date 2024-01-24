@@ -28,8 +28,8 @@
           <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
-              <label for="email" class="form-label">Usuario</label>
-              <input type="text" class="form-control" id="email" name="email" placeholder="Ingresa tu usuario" autofocus>
+              <label for="username" class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu usuario" autofocus>
             </div>
             <div class="mb-3 form-password-toggle">
               <div class="d-flex justify-content-between">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MonitoresUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,9 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/monitoreo/empresas',[EmpresasController::class,'index'])->name('empresas.index');
+Route::get('/monitoreo/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');
+Route::get('/minitoreo/usuarios',[MonitoresUserController::class,'index'])->name('monitores.index');
+
+
+Route::get('/minitoreo/usuarios/nuevo',[MonitoresUserController::class,'create'])->name('monitores.create');
 require __DIR__.'/auth.php';
