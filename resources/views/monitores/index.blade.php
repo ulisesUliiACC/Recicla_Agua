@@ -30,45 +30,26 @@
                     <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
                       <div class="modal-dialog">
                         <form class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="backDropModalTitle">Alta de Usuario</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
+
                           <div class="modal-body">
-                            <div class="row">
-                              <div class="col mb-3">
-                                <label for="nameBackdrop" class="form-label">Nombre Completo</label>
-                                <input type="text" id="nameBackdrop" class="form-control" placeholder="Enter Name">
-                              </div>
-                            </div>
-                            <div class="row g-2">
-                              <div class="col mb-0">
-                                <label for="emailBackdrop" class="form-label">Nombre Usuario</label>
-                                <input type="email" id="emailBackdrop" class="form-control" >
-                              </div>
-                              <div class="col mb-0">
-                                <label for="dobBackdrop" class="form-label">Contraseña</label>
-                                <input type="password" id="password" class="form-control" >
-                              </div>
-                            </div>
-                            <div class="row g-2">
-                              <div class="col mb-0">
-                                <label for="emailBackdrop" class="form-label">Numero de telefono</label>
-                                <input type="phone" id="phone" class="form-control" >
-                              </div>
-                              <div class="col mb-0">
-                                <div class="mb-3">
-                                  <label for="exampleFormControlSelect1" class="form-label">Rol Asignado</label>
-                                  <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                            {!! Form::open(array('route' => 'users.store', 'method' => 'POST')) !!}
+                                <!-- Otros campos del usuario -->
+                                <div class="row g-2">
+                                    <div class="col mb-0">
+                                        <div class="mb-3">
+                                            <label for="roleBackdrop" class="form-label">Rol Asignado</label>
+                                            {!! Form::select('roles[]', $roles, null, array('class' => 'form-select', 'id' => 'roleBackdrop')) !!}
+
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                {!! Form::submit('Save', array('class' => 'btn btn-primary')) !!}
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Save</button>
@@ -85,6 +66,7 @@
                   <tr>
                       <th>Nombre de Usuario</th>
                       <th>Nombre completo</th>
+                      <th>Numero de telefono</th>
                       <th>Rol</th>
                       <th>Status</th>
                       <th>Actions</th>
@@ -98,6 +80,7 @@
                       <td><i class='bx bxs-user-pin bx-tada' style='color:#cb288a'></i> <span class="fw-medium">{{$user->username}}</span>
                       </td>
                       <td>{{$user->name}}</td>
+                      <td></td>
                       <td></td>
                       <td><span class="badge bg-label-primary me-1">Active</span></td>
                       <td>

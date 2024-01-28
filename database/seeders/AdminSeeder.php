@@ -16,12 +16,14 @@ class AdminSeeder extends Seeder
       user::create([
         'name' => 'Ulises Ulii uwu',
         'username' => 'UlisesDFUWU',
+        'telefono' => '343243',
         'password' => bcrypt('ulises2415'),
     ]);
 
     user::create([
       'name' => 'Malwadisco',
       'username' => 'malvadisco',
+      'telefono' => '343243',
       'password' => bcrypt('221910'),
   ]);
 

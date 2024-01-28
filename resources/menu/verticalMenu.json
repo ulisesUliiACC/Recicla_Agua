@@ -45,11 +45,10 @@
       "menuHeader": "Roles y Permisos"
     },
     {
-      "url": "https://github.com/themeselection/sneat-bootstrap-html-laravel-admin-template-free/issues",
+      "url": "admin/roles",
       "icon": "menu-icon tf-icons bx bx-support",
       "name": "Roles",
-      "slug": "support",
-      "target": "_blank"
+      "slug": "support"
     }
   ]
 }
