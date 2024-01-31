@@ -34,12 +34,12 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-  Route::get('/x',[UserController::class,'index'])-> name ('monitores.index');
-Route::get('/users/create',[UserController::class,'create'])-> name ('users.create');
-Route::post('/users/create',[UserController::class,'store'])-> name ('users.store');
-Route::get('/users/{id}/edit/', [UserController::class, 'edit'])->name('users.edit');
-Route::put('/users/{id}/update/', [UserController::class, 'update'])->name('users.update');
-Route::delete('/users/{id}/destroy/', [UserController::class, 'destroy'])->name('users.destroy');
+  Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
+  Route::post('/admin/users/create', [UserController::class, 'store'])->name('users.store');
+  Route::get('/admin/users/{id}/edit/', [UserController::class, 'edit'])->name('users.edit');
+  Route::put('/admin/users/{id}/update/', [UserController::class, 'update'])->name('users.update');
+  Route::delete('/admin/users/{id}/destroy/', [UserController::class, 'destroy'])->name('users.destroy');
+
 
   Route::get('/monitoreo/empresas',[EmpresasController::class,'index'])->name('empresas.index');
   Route::get('/monitoreo/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');

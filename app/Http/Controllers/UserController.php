@@ -11,14 +11,16 @@ use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
+use Spatie\Permission\Models\Permission;
 
+use Illuminate\Validation\Rules;
 
 use Spatie\Permission\Traits\HasRoles;
 class UserController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:ver-usuario|crear-usuario|editar-usuario|borrar-usuario')->only('index');
+         $this->middleware('permission:ver-usuario|crear-usuario|editar-usuario|borrar-usuario',['only'=>['index']]);
          $this->middleware('permission:crear-usuario', ['only' => ['create','store']]);
          $this->middleware('permission:editar-usuario', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-usuario', ['only' => ['destroy']]);
@@ -32,62 +34,69 @@ class UserController extends Controller
      */
     public function index(User $model)
 {
-    $users = User::paginate(5);
-    $userCount = User::count();
-    $roleCount = Role::count();
+    $users = User::with('roles')->paginate(10);
+    $permissions = Permission::all();
     $roles = Role::pluck('name', 'name')->all();
-    return view('monitores.index', compact('users', 'userCount', 'roleCount','roles'))
-        ->with('i', (request()->input('page', 1) - 1) * $users->perPage());
+    return view('monitores.index', compact('users', 'roles', 'permissions'));
 }
 
 
-public function create()
+public function store(Request $request)
 {
-    $roles = Role::pluck('name', 'name')->all();
-    return view('monitores.index', compact('roles'));
+    // Añade este dd para verificar que los datos lleguen al controlador
+    //dd($request->all());
+
+    $request->validate([
+        'name' => 'required|string',
+        'username' => 'required|string|unique:users',
+        'telefono' => 'required|min:10|max:10',
+        'estado' => 'boolean',
+        'password' => 'required|string|min:8',
+        'roles' => 'required|array',
+    ]);
+
+    // Añade este dd para verificar que se pasa la validación
+    //dd('Se pasa la validación');
+
+    $input = $request->all();
+    $input['password'] = Hash::make($input['password']);
+
+    // Añade este dd para verificar antes de la creación del usuario
+    //dd($input);
+
+    $user = User::create($input);
+
+    // Añade este dd para verificar después de la creación del usuario
+    //dd('Usuario creado');
+
+    $roles = $request->input('roles');
+    $input= $request->input('estado') == '1' ? true : false;
+    $validRoles = Role::whereIn('name', $roles)->pluck('name');
+    $user->assignRole($validRoles);
+
+    return redirect()->route('monitores.index')->with('success', 'Usuario creado con éxito.');
 }
 
 
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'user' => 'required|email|unique:users,email',
-            'telefono' => 'required|min:10|max:10',  // Agrega la validación para el teléfono
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
-        ]);
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
 
-        return redirect()->route('monitores.index')
-        ->with('success', 'Usuario creado con éxito.');
-    }
 
     public function show($id)
     {
         //
     }
 
-    public function edit($id)
-    {
-        $user = User::find($id);
-        $roles = Role::pluck('name','name')->all();
-        $userRole = $user->roles->pluck('name','name')->all();
 
-        return view('users.edit',compact('user','roles','userRole'));
-    }
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
-        ]);
+      $request->validate([
+        'name' => 'required|string',
+        'username' => 'required|string|unique:users',
+        'telefono' => 'required|min:10|max:10',
+        'estado' => 'boolean',
+        'password' => 'required|string|min:8',
+        'roles' => 'required|array',
+    ]);
 
         $input = $request->all();
         if(!empty($input['password'])){

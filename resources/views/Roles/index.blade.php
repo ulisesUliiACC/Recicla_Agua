@@ -22,7 +22,7 @@
         <h5 class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 Lista de roles y permisos
-<!--fin del modal -->
+                <!--fin del modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">
                     Nuevo Usuario
                 </button>
@@ -37,9 +37,13 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row">
+                                  <div id="error-message" class="alert alert-danger" style="display: none;">
+                                    Por favor, completa todos los campos.
+                                </div>
                                     <div class="col mb-3">
                                         <label for="nameBackdrop" class="form-label">Nombre del Rol:</label>
                                         {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'nameBackdrop']) !!}
+
                                     </div>
                                 </div>
                                 <div class="row g-2">
@@ -66,14 +70,14 @@
                     </div>
                 </div>
 
-<!--fin del modal -->
+                <!--fin del modal -->
             </div>
         </h5>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Nombre del Rol  </th>
+                        <th>Nombre del Rol </th>
                         <th>Permisos</th>
                         <th>acciones</th>
                     </tr>
@@ -84,28 +88,28 @@
                             <td>{{ $role->name }}</td>
                             <td>
                                 @foreach ($role->permissions as $permission)
-
                                     <li><span class="badge bg-label-primary me-1">{{ $permission->name }}</span></li>
                                 @endforeach
                             </td>
                             <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('roles.edit', $role->id) }}">
-                                        <i class="bx bx-edit-alt me-1"></i> Editar
-                                    </a>
-                                    <form action="{{ route('roles.destroy', $role->id) }}" method="POST"
-                                      class="formEliminar">
-                                      @csrf
-                                      @method('DELETE')
-                                      <button type="submit" class="btn p-1 dropdown-toggle hide-arrow text-danger">
-                                          <i class="bx bx-trash me-1"></i>
-                                          <a>delete</a></button>
-                                  </form>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('roles.edit', $role->id) }}">
+                                            <i class="bx bx-edit-alt me-1"></i> Editar
+                                        </a>
+                                        <form action="{{ route('roles.destroy', $role->id) }}" method="POST"
+                                            class="formEliminar">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn p-1 dropdown-toggle hide-arrow text-danger">
+                                                <i class="bx bx-trash me-1"></i>
+                                                <a>delete</a></button>
+                                        </form>
 
+                                    </div>
                                 </div>
-                            </div>
 
 
                             </td>
@@ -118,35 +122,54 @@
     </div>
     </div>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    (function() {
-        'use strict'
-        //crear la clase formEliminar dentro del form del boton borrar
-        //recordar que cada registro a eliminar esta contenido en un form
-        var forms = document.querySelectorAll('.formEliminar')
-        Array.prototype.slice.call(forms)
-            .forEach(function(form) {
-                form.addEventListener('submit', function(event) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                    Swal.fire({
-                        title: '¿Deseas eliminar este producto?!!?',
-                        icon: 'info',
-                        showCancelButton: true,
-                        confirmButtonColor: '#20c997',
-                        cancelButtonColor: '#6c757d',
-                        confirmButtonText: 'Confirmar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            this.submit();
-                            Swal.fire('¡Eliminado!',
-                                'El registro ha sido eliminado exitosamente.', 'success');
-                        }
-                    })
-                }, false)
-            })
-    })()
-</script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        (function() {
+            'use strict'
+            //crear la clase formEliminar dentro del form del boton borrar
+            //recordar que cada registro a eliminar esta contenido en un form
+            var forms = document.querySelectorAll('.formEliminar')
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                        Swal.fire({
+                            title: '¿Deseas eliminar este Rol??',
+                            icon: 'info',
+                            showCancelButton: true,
+                            confirmButtonColor: '#20c997',
+                            cancelButtonColor: '#6c757d',
+                            confirmButtonText: 'Confirmar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                this.submit();
+                                Swal.fire('¡Eliminado!',
+                                    'El registro ha sido eliminado exitosamente.', 'success');
+                            }
+                        })
+                    }, false)
+                })
+        })()
+    </script>
+   <script>
+    function validarYGuardar() {
+        // Obtén el valor del input
+        var inputValue = document.getElementById('nameBackdrop').value.trim();
 
+        // Muestra el mensaje de error y cambia el estilo del borde si el campo está vacío
+        if (!inputValue) {
+            document.getElementById('nameError').innerText = 'Por favor, poner nombre.';
+            document.getElementById('nameError').style.display = 'block';
+            document.getElementById('nameBackdrop').classList.add('error-border');
+        } else {
+            // Si el campo no está vacío, oculta el mensaje de error y restaura el estilo del borde
+            document.getElementById('nameError').style.display = 'none';
+            document.getElementById('nameBackdrop').classList.remove('error-border');
+
+            // Agrega aquí la lógica para guardar el formulario, por ejemplo, enviar una petición AJAX
+            // o realizar un envío de formulario estándar.
+        }
+    }
+</script>
 @endsection
