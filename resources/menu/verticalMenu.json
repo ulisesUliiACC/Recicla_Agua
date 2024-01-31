@@ -10,7 +10,7 @@
       "menuHeader": "Usuarios"
     },
     {
-      "url": "minitoreo/usuarios",
+      "url": "/admin/users",
       "name": " Listado de usuarios",
       "icon": "menu-icon bx bxs-user-detail bx-flip-horizontal bx-tada",
       "slug": "app-email"
