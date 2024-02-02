@@ -45,6 +45,9 @@ Route::middleware('auth')->group(function () {
   Route::get('/monitoreo/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');
   Route::get('/minitoreo/usuarios',[MonitoresUserController::class,'index'])->name('monitores.index');
 
+  Route::get('/monitores/reportes',[EmpresasController::class,'reportes'])->name('monitores.reportes');
+  Route::get('/monitores/croquis',[EmpresasController::class,'croquis'])->name('empresas.croquis');
+
 
   /*  Ruta de roles  */
   Route::get('/admin/roles',[RolController::class,'index'])->name('roles.index');
@@ -52,6 +55,7 @@ Route::middleware('auth')->group(function () {
   Route::post('/admin/roles/create',[RolController::class,'store'])->name('roles.store');
   Route::get('/minitoreo/usuarios/nuevo',[MonitoresUserController::class,'create'])->name('monitores.create');
   Route::get('/roles/{id}/edit',[RolController::class,'edit'])->name('roles.edit');
+  Route::put('/admin/roles/{id}/update',[RolController::class,'update'])->name('roles.update');
   Route::delete('/roles/{id}/destroy',[RolController::class,'destroy'])->name('roles.destroy');
 
 });

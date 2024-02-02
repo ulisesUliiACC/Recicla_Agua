@@ -28,18 +28,17 @@
       "menuHeader": "Reportes"
     },
     {
-      "name": "Cards",
-      "icon": "menu-icon tf-icons bx bx-collection",
+      "name": "Reportes Monitoreo",
+      "icon": "menu-icon bx bxs-report bx-tada",
       "slug": "cards-basic",
-      "url": "cards/basic"
+      "url": "/monitores/reportes"
     },
 
     {
-      "url": "https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1/tables/datatables-basic",
-      "icon": "menu-icon tf-icons bx bx-grid",
-      "name": "Datatables",
-      "slug": "tables-datatables",
-      "target": "_blank"
+      "url": "/monitores/croquis",
+      "icon": "menu-icon bx bx-map-alt",
+      "name": "Croquis",
+      "slug": "tables-datatables"
     },
     {
       "menuHeader": "Roles y Permisos"

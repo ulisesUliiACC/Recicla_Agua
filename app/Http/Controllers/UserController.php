@@ -45,7 +45,6 @@ public function store(Request $request)
 {
     // Añade este dd para verificar que los datos lleguen al controlador
     //dd($request->all());
-
     $request->validate([
         'name' => 'required|string',
         'username' => 'required|string|unique:users',
@@ -54,39 +53,22 @@ public function store(Request $request)
         'password' => 'required|string|min:8',
         'roles' => 'required|array',
     ]);
-
     // Añade este dd para verificar que se pasa la validación
     //dd('Se pasa la validación');
-
+   // ...
     $input = $request->all();
     $input['password'] = Hash::make($input['password']);
-
-    // Añade este dd para verificar antes de la creación del usuario
-    //dd($input);
+    $input['estado'] = $request->input('estado') == '1' ? true : false;
 
     $user = User::create($input);
 
-    // Añade este dd para verificar después de la creación del usuario
-    //dd('Usuario creado');
-
     $roles = $request->input('roles');
-    $input= $request->input('estado') == '1' ? true : false;
     $validRoles = Role::whereIn('name', $roles)->pluck('name');
     $user->assignRole($validRoles);
 
     return redirect()->route('monitores.index')->with('success', 'Usuario creado con éxito.');
+
 }
-
-
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
-
     public function update(Request $request, $id)
     {
       $request->validate([

@@ -18,6 +18,7 @@ class SeederTablaPermisos extends Seeder
   {
     $this->createRolesPermissions();
     $this->createUser();
+    $this->viewreportes();
   }
 
   public function createRolesPermissions()
@@ -25,7 +26,7 @@ class SeederTablaPermisos extends Seeder
     foreach (['ver-rol', 'crear-rol', 'editar-rol', 'borrar-rol'] as $permiso) {
       Permission::create(['name' => $permiso]);
     }
-
+    $this->command->info('success');
   }
 
   public function createUser()
@@ -33,5 +34,15 @@ class SeederTablaPermisos extends Seeder
     foreach(['ver-usuario','crear-usuario','editar-usuario','borrar-usuario']as $permiso){
       Permission::create(['name'=>$permiso]);
     }
+    $this->command->info('success');
   }
-}
+
+  public function viewreportes()
+  {
+    foreach(['ver-reporte','crear-reporte','editar-reporte','borra-reporte','descargar-reporte'] as $permiso){
+      Permission::create(['name'=>$permiso]);
+    }
+    $this->command->info('creado roles de reportes succes!!');
+    }
+  }
+

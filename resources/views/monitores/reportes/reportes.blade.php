@@ -16,7 +16,6 @@
 
 @section('content')
 
-vista de alta de empresas
+vista de informes
 
 @endsection
-

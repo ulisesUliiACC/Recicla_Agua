@@ -24,4 +24,8 @@ class MonitoresUserController extends Controller
     {
       $monitorUser = new User();
     }
+
+
+    /* vista de croquis */
+
 }

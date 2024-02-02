@@ -11,62 +11,96 @@
             <div class="d-flex justify-content-between align-items-center">
                 Lista de usuario
 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal" @can('crear-usuario') @else disabled @endcan>
                     Nuevo Usuario
                 </button>
                 <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
                     <div class="modal-dialog">
-                        <form class="modal-content" action="{{ route('users.store') }}" method="POST">
+                        <form class="modal-content" action="{{ route('users.store') }}" method="POST" id="userForm">
                             @csrf
-                            <div class="modal-body">
-                                <div class="row g-2">
-                                    <div class="col mb-3">
-                                        {{ Form::label('nameBackdrop', 'Nombre Completo', ['class' => 'form-label']) }}
-                                        {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'nameBackdrop', 'placeholder' => 'Enter Name']) }}
-                                    </div>
+                            <style>
+                              .is-invalid {
+                                  border: 1px solid #dc3545;
+                              }
 
-                                    <div class="col mb-3">
-                                        {{ Form::label('emailBackdrop', 'Nombre Usuario', ['class' => 'form-label']) }}
-                                        {{ Form::text('username', null, ['class' => 'form-control', 'id' => 'emailBackdrop']) }}
-                                    </div>
+                              .is-invalid ~ .invalid-feedback {
+                                  display: block;
+                                  color: #dc3545;
+                              }
+                          </style>
 
-                                    <div class="col mb-3">
-                                        {{ Form::label('passwordBackdrop', 'Contraseña', ['class' => 'form-label']) }}
-                                        {{ Form::password('password', ['class' => 'form-control', 'id' => 'passwordBackdrop']) }}
-                                    </div>
-                                </div>
+                          <div class="modal-body">
+                              <form class="row g-3 needs-validation" novalidate>
+                                  <div class="col mb-3">
+                                      {{ Form::label('nameBackdrop', 'Nombre Completo', ['class' => 'form-label']) }}
+                                      {{ Form::text('name', null, ['class' => 'form-control ' . ($errors->has('name') ? 'is-invalid' : ''), 'id' => 'nameBackdrop', 'placeholder' => 'Enter Name', 'required']) }}
+                                      @error('name')
+                                          <div class="invalid-feedback">{{ $message }}</div>
+                                      @enderror
+                                  </div>
 
-                                <div class="row g-2">
-                                    <div class="col mb-3">
-                                        {{ Form::label('phoneBackdrop', 'Numero de telefono', ['class' => 'form-label']) }}
-                                        {{ Form::tel('telefono', null, ['class' => 'form-control', 'id' => 'phoneBackdrop']) }}
-                                    </div>
+                                  <div class="col mb-3">
+                                      {{ Form::label('usernameBackdrop', 'Nombre Usuario', ['class' => 'form-label']) }}
+                                      {{ Form::text('username', null, ['class' => 'form-control ' . ($errors->has('username') ? 'is-invalid' : ''), 'id' => 'usernameBackdrop', 'required']) }}
+                                      @error('username')
+                                          <div class="invalid-feedback">{{ $message }}</div>
+                                      @enderror
+                                  </div>
 
-                                    <div class="col mb-3">
-                                        {{ Form::label('roleBackdrop', 'Rol Asignado', ['class' => 'form-label']) }}
-                                        {{ Form::select('roles[]', $roles, null, ['class' => 'form-select', 'id' => 'roleBackdrop']) }}
-                                    </div>
-                                </div>
+                                  <div class="col mb-3">
+                                      {{ Form::label('passwordBackdrop', 'Contraseña', ['class' => 'form-label']) }}
+                                      {{ Form::password('password', ['class' => 'form-control ' . ($errors->has('password') ? 'is-invalid' : ''), 'id' => 'passwordBackdrop', 'required']) }}
+                                      @error('password')
+                                          <div class="invalid-feedback">{{ $message }}</div>
+                                      @enderror
+                                  </div>
 
-                                <div class="row g-2">
-                                    <div class="col mb-3">
-                                        {{ Form::label('estadoBackdrop', 'Estado', ['class' => 'form-label']) }}
-                                        {{ Form::select('estado', [1 => 'Habilitado', 0 => 'Inhabilitado'], null, ['class' => 'form-select', 'id' => 'estadoBackdrop']) }}
-                                    </div>
-                                </div>
+                                  <div class="col mb-3">
+                                      {{ Form::label('phoneBackdrop', 'Numero de telefono', ['class' => 'form-label']) }}
+                                      {{ Form::tel('telefono', null, ['class' => 'form-control ' . ($errors->has('telefono') ? 'is-invalid' : ''), 'id' => 'phoneBackdrop', 'required']) }}
+                                      @error('telefono')
+                                          <div class="invalid-feedback">{{ $message }}</div>
+                                      @enderror
+                                  </div>
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-danger"
-                                        data-bs-dismiss="modal">Close</button>
-                                    {{ Form::button('Save', ['type' => 'submit', 'class' => 'btn btn-primary']) }}
-                                </div>
-                                {!! Form::close() !!}
+                                  <div class="col mb-3">
+                                      {{ Form::label('roleBackdrop', 'Rol Asignado', ['class' => 'form-label']) }}
+                                      {{ Form::select('roles[]', $roles, null, ['class' => 'form-select', 'id' => 'roleBackdrop', 'required']) }}
+                                  </div>
 
-                            </div>
+                                  <div class="col mb-3">
+                                    {{ Form::label('estadoBackdrop', 'Estado', ['class' => 'form-label']) }}
+                                    {{ Form::select('estado', [1 => 'Habilitado', 0 => 'Inhabilitado'], null, ['class' => 'form-select', 'id' => 'estadoBackdrop', 'required']) }}
+                                  </div>
+
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                                      {{ Form::button('Save', ['type' => 'submit', 'class' => 'btn btn-primary']) }}
+                                  </div>
+                              </form>
+                          </div>
+
+                          <!-- Script para activar la validación de Bootstrap -->
+                          <script>
+                              document.addEventListener('DOMContentLoaded', function () {
+                                  const forms = document.querySelectorAll('.needs-validation');
+
+                                  Array.from(forms).forEach(form => {
+                                      form.addEventListener('submit', event => {
+                                          if (!form.checkValidity()) {
+                                              event.preventDefault();
+                                              event.stopPropagation();
+                                          }
+
+                                          form.classList.add('was-validated');
+                                      }, false);
+                                  });
+                              });
+                          </script>
+
                         </form>
                     </div>
                 </div>
-
             </div>
         </h5>
         <div class="table-responsive">
@@ -91,28 +125,32 @@
                             <td>{{ $user->telefono }}</td>
                             <td>{{ implode(', ', $user->getRoleNames()->toArray()) }}</td>
                             <td>
-                              <span class="badge @if($user->estado) bg-label-success @else bg-label-danger @endif me-1">
-                                {{ $user->estado ? 'Habilitado' : 'Inhabilitado' }}
-                            </span>
+                                <span
+                                    class="badge @if ($user->estado) bg-label-success @else bg-label-danger @endif me-1">
+                                    {{ $user->estado ? 'Habilitado' : 'Inhabilitado' }}
+                                </span>
                             </td>
                             <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('users.edit', $user->id) }}">
-                                        <i class="bx bx-edit-alt me-1"></i> Editar
-                                    </a>
-                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST"
-                                      class="formEliminar">
-                                      @csrf
-                                      @method('DELETE')
-                                      <button type="submit" class="btn p-1 dropdown-toggle hide-arrow text-danger">
-                                          <i class="bx bx-trash me-1"></i>
-                                          <a>delete</a></button>
-                                  </form>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                    <div class="dropdown-menu">
+                                      <button type="submit" class="btn p-1 dropdown-toggle hide-arrow text-danger" @can('editar-usuario')  @else disabled @endcan>
+                                        <a class="dropdown-item" href="{{ route('users.edit', $user->id) }}">
+                                            <i class="bx bx-edit-alt me-1"></i> Editar
+                                        </a>
+                                      </button>
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                                            class="formEliminar">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn p-1 dropdown-toggle hide-arrow text-danger"@can('borrar-usuario')  @else disabled @endcan>
+                                                <i class="bx bx-trash me-1"></i>
+                                                <a>delete</a></button>
+                                        </form>
 
+                                    </div>
                                 </div>
-                            </div>
                             </td>
                         </tr>
                     @endforeach
@@ -159,7 +197,7 @@
                         event.preventDefault()
                         event.stopPropagation()
                         Swal.fire({
-                          title: '¿Deseas eliminar este Usuario??',
+                            title: '¿Deseas eliminar este Usuario??',
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#DC143C',
@@ -176,5 +214,20 @@
                 })
         })()
     </script>
+
+
+                          <!-- Script para activar la validación de Bootstrap -->
+                          <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                var form = document.getElementById('userForm');
+                                form.addEventListener('submit', function (event) {
+                                    if (!form.checkValidity()) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+                                    form.classList.add('was-validated');
+                                });
+                            });
+                        </script>
 
 @endsection

@@ -104,38 +104,34 @@ class RolController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        $role = Role::find($id);
-        $permission = Permission::get();
-        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
-            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
-            ->all();
+{
+    $role = Role::find($id);
+    $permissions = Permission::all();
+    $rolePermissions = $role->permissions->pluck('id')->toArray();
 
-        return view('roles.editar',compact('role','permission','rolePermissions'));
-    }
+    return view('roles.index', compact('role', 'permissions', 'rolePermissions'));
+}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'permission' => 'required',
-        ]);
+public function update(Request $request, $id)
+{
+    $this->validate($request, [
+        'name' => 'required',
+        'permission' => 'required|array',
+    ]);
 
-        $role = Role::find($id);
-        $role->name = $request->input('name');
-        $role->save();
+    $role = Role::find($id);
+    $role->name = $request->input('name');
+    $role->save();
 
-        $role->syncPermissions($request->input('permission'));
+    // Obtén los IDs de permisos desde el formulario
+    $permissionIds = $request->input('permission');
 
-        return redirect()->route('roles.index');
-    }
+    // Sincroniza los permisos del rol
+    $existingPermissionIds = Permission::whereIn('id', $permissionIds)->pluck('id')->toArray();
+    $role->syncPermissions($existingPermissionIds);
+
+    return redirect()->route('roles.index');
+}
 
     /**
      * Remove the specified resource from storage.
