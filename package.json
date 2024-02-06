@@ -93,6 +93,6 @@
     "jquery": "3.7.0",
     "masonry-layout": "4.2.2",
     "perfect-scrollbar": "1.5.5",
-    "sweetalert2": "^11.10.4"
+    "sweetalert2": "^11.10.5"
   }
 }
