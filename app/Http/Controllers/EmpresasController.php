@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Empresa;
 class EmpresasController extends Controller
@@ -16,8 +16,15 @@ class EmpresasController extends Controller
     {
       return view ('monitores.reportes.reportes');
     }
-    public function croquis()
+    public function croquis():view
     {
-      return view ('empresas.croquis');
+      $croquis = Empresa::all();
+      return view ('empresas.croquis',compact('croquis'));
+    }
+    public function altacroquis():view
+    {
+
+
+
     }
 }

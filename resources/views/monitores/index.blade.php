@@ -136,9 +136,11 @@
                                         data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                     <div class="dropdown-menu">
                                       <button type="submit" class="btn p-1 dropdown-toggle hide-arrow text-danger" @can('editar-usuario')  @else disabled @endcan>
-                                        <a class="dropdown-item" href="{{ route('users.edit', $user->id) }}">
-                                            <i class="bx bx-edit-alt me-1"></i> Editar
-                                        </a>
+                                        <button type="submit" class="btn p-1 dropdown-toggle hide-arrow text-danger" @can('editar-usuario')  @else disabled @endcan>
+                                          <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editUserModal{{ $user->id }}">
+                                              <i class="bx bx-edit-alt me-1"></i> Editar
+                                          </a>
+                                      </button>
                                       </button>
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST"
                                             class="formEliminar">
@@ -148,8 +150,73 @@
                                                 <i class="bx bx-trash me-1"></i>
                                                 <a>delete</a></button>
                                         </form>
-
                                     </div>
+                                    <div class="modal fade" id="editUserModal{{ $user->id }}" data-bs-backdrop="static" tabindex="-1">
+                                      <div class="modal-dialog">
+                                          <form class="modal-content" action="{{ route('users.update', $user->id) }}" method="POST">
+                                              @csrf
+                                              @method('PUT')
+                                              <div class="modal-header">
+                                                  <h5 class="modal-title" id="editUserModalTitle{{ $user->id }}">Editar Usuario</h5>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body">
+                                                  <!-- Contenido del formulario de edición -->
+                                                  <div class="row">
+                                                      <div id="error-message" class="alert alert-danger" style="display: none;">
+                                                          Por favor, completa todos los campos.
+                                                      </div>
+                                                      <div class="col mb-3">
+                                                          {{ Form::label('nameBackdrop', 'Nombre Completo', ['class' => 'form-label']) }}
+                                                          {{ Form::text('name', $user->name, ['class' => 'form-control ' . ($errors->has('name') ? 'is-invalid' : ''), 'id' => 'nameBackdrop', 'placeholder' => 'Enter Name', 'required']) }}
+                                                          @error('name')
+                                                              <div class="invalid-feedback">{{ $message }}</div>
+                                                          @enderror
+                                                      </div>
+
+                                                      <div class="col mb-3">
+                                                          {{ Form::label('usernameBackdrop', 'Nombre Usuario', ['class' => 'form-label']) }}
+                                                          {{ Form::text('username', $user->username, ['class' => 'form-control ' . ($errors->has('username') ? 'is-invalid' : ''), 'id' => 'usernameBackdrop', 'required']) }}
+                                                          @error('username')
+                                                              <div class="invalid-feedback">{{ $message }}</div>
+                                                          @enderror
+                                                      </div>
+
+                                                      <div class="col mb-3">
+                                                          {{ Form::label('passwordBackdrop', 'Contraseña', ['class' => 'form-label']) }}
+                                                          {{ Form::password('password', ['class' => 'form-control ' . ($errors->has('password') ? 'is-invalid' : ''), 'id' => 'passwordBackdrop', 'placeholder' => 'Enter Password', 'required']) }}
+                                                          @error('password')
+                                                              <div class="invalid-feedback">{{ $message }}</div>
+                                                          @enderror
+                                                      </div>
+
+                                                      <div class="col mb-3">
+                                                          {{ Form::label('phoneBackdrop', 'Numero de telefono', ['class' => 'form-label']) }}
+                                                          {{ Form::tel('telefono', $user->telefono, ['class' => 'form-control ' . ($errors->has('telefono') ? 'is-invalid' : ''), 'id' => 'phoneBackdrop', 'placeholder' => 'Enter Phone Number', 'required']) }}
+                                                          @error('telefono')
+                                                              <div class="invalid-feedback">{{ $message }}</div>
+                                                          @enderror
+                                                      </div>
+
+                                                      <div class="col mb-3">
+                                                          {{ Form::label('roleBackdrop', 'Rol Asignado', ['class' => 'form-label']) }}
+                                                          {{ Form::select('roles[]', $roles, $user->roles->pluck('id')->toArray(), ['class' => 'form-select', 'id' => 'roleBackdrop', 'required', 'multiple']) }}
+                                                      </div>
+
+                                                      <div class="col mb-3">
+                                                          {{ Form::label('estadoBackdrop', 'Estado', ['class' => 'form-label']) }}
+                                                          {{ Form::select('estado', [1 => 'Habilitado', 0 => 'Inhabilitado'], $user->estado, ['class' => 'form-select', 'id' => 'estadoBackdrop', 'required']) }}
+                                                      </div>
+
+                                                  </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                  {{ Form::button('Guardar Cambios', ['type' => 'submit', 'class' => 'btn btn-primary']) }}
+                                              </div>
+                                          </form>
+                                      </div>
+                                  </div>
                                 </div>
                             </td>
                         </tr>

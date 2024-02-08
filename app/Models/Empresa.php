@@ -60,6 +60,8 @@ protected $table = 'empresas';
       'direccion',
       'telefono',
       'atencion',
+      //imagen del croquis de la empresas
+      'imagen'
     ];
 
 }
