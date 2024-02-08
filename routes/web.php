@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\EmpresasController;
+use App\Http\Controllers\InformeController;
+use App\Http\Controllers\PermisosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RolController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonitoresUserController;
 use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +50,7 @@ Route::middleware('auth')->group(function () {
 
   Route::get('/monitores/reportes',[EmpresasController::class,'reportes'])->name('monitores.reportes');
   Route::get('/monitores/croquis',[EmpresasController::class,'croquis'])->name('empresas.croquis');
+  Route::post('/monitores/reportes/buscar', [EmpresasController::class, 'buscar'])->name('buscar.empresas');
 
 
   /*  Ruta de roles  */
@@ -57,6 +61,14 @@ Route::middleware('auth')->group(function () {
   Route::get('/roles/{id}/edit',[RolController::class,'edit'])->name('roles.edit');
   Route::put('/admin/roles/{id}/update',[RolController::class,'update'])->name('roles.update');
   Route::delete('/roles/{id}/destroy',[RolController::class,'destroy'])->name('roles.destroy');
+
+  /* Ruta de Permisos*/
+
+  Route::get('admin/permisos',[PermisosController::class,'index'])->name('permisos.index');
+
+  /* Reportes && solicitudes */
+
+  Route::get('/monitoreo/reportes/solicitud',[InformeController::class,'solicitud'])->name('solicitud');
 
 });
 

@@ -25,6 +25,15 @@
       "slug": "app-email"
     },
     {
+      "menuHeader": "Parametros"
+    },
+    {
+      "name": "parametros de solicitud",
+      "icon": "menu-icon bx bxs-report bx-tada",
+      "slug": "cards-basic",
+      "url": "/monitores/reportes"
+    },
+    {
       "menuHeader": "Reportes"
     },
     {
@@ -47,6 +56,12 @@
       "url": "admin/roles",
       "icon": "menu-icon tf-icons bx bx-support",
       "name": "Roles",
+      "slug": "support"
+    },
+    {
+      "url": "admin/permisos",
+      "icon": "menu-icon tf-icons bx bx-support",
+      "name": "Permisos",
       "slug": "support"
     }
   ]

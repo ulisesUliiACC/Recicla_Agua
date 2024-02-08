@@ -19,13 +19,4 @@ class MonitoresUserController extends Controller
     {
       return view ('monitores.create');
     }
-
-    public function store()
-    {
-      $monitorUser = new User();
-    }
-
-
-    /* vista de croquis */
-
 }
