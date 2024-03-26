@@ -18,7 +18,7 @@
                             <span class="app-brand-text demo text-body fw-bold">{{ config('variables.templateName') }}</span>
                         </a>
                     </div>
-                    <h4 class="mb-2">Bienvenido a {{ config('variables.templateName') }}!</h4>
+                    <h4 class="mb-2">Bienvenido a recicla agua</h4>
                     <p class="mb-4">Por favor, inicie sesión:</p>
 
                     <form method="POST" action="{{ route('login') }}">

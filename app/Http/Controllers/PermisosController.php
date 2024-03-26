@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -18,19 +19,23 @@ class PermisosController extends Controller
    * @throws ValidationException
    */
   public function store(Request $request)
-    {
-      $this->validate($request, [
-        'name' => 'required|unique:permissions,name,NULL,id,guard_name,' . $request->guard_name,
-        'guard_name' => 'required',
-        'description' => 'nullable',
+  {
+    try {
+      $request->validate([
+        'name' => 'required|unique:permissions,name',
       ]);
 
-      $permission = Permission::create($request->all());
-      $data = [
-        'success' => true,
-        'message' => 'Permiso creado con éxito.',
-        'permission' => $permission, // Opcional: incluye el permiso creado
-      ];
-      return response()->json($data);
+      Permission::create(['name' => $request->name]);
+
+      return redirect()->back()->with('success', 'Permiso creado con éxito.');
+    } catch (ValidationException $e) {
+      return redirect()->back()->withErrors($e->validator->errors())->withInput();
+    } catch (\Exception $e) {
+      return redirect()->back()->with('error', 'Error al crear el permiso: ' . $e->getMessage());
     }
+  }
+  public function  destroy($id){
+      DB::table("roles")->where('id',$id)->delete();
+      return redirect()->route('permisos.index');
+  }
 }

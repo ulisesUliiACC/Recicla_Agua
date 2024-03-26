@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmpresasController;
+
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\PermisosController;
 use App\Http\Controllers\ProfileController;
@@ -65,6 +66,8 @@ Route::middleware('auth')->group(function () {
   /* Ruta de Permisos*/
 
   Route::get('admin/permisos',[PermisosController::class,'index'])->name('permisos.index');
+  Route::post('/admin/permisos/create',[PermisosController::class,'store'])->name('permisos.store');
+  Route::delete('admin/permisos/{id}/destroy',[PermisosController::class,'detroy'])->name('permisos.destroy');
 
   /* Reportes && solicitudes */
 
