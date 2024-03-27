@@ -16,7 +16,7 @@
       <input type="text" id="clave" name="clave" class="input-left" placeholder="...">
       <button type="submit" class="button">Buscar</button>
     </form>
-    <button type="button" class="button1">PDF</button>
+    <button type="button" class="button1" onclick="window.location='{{ route('informe.pdf') }}'">PDF</button>
     <img src="Logo.jpg" alt="Logo xd" class="image">
   </header>
   <main>

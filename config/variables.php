@@ -3,7 +3,7 @@
   return [
     "creatorName" => "ThemeSelection",
     "creatorUrl" => "https://themeselection.com",
-    "templateName" => "Recicla Agua",
+    "templateName" => "Reciclagua",
     "templateSuffix" => "Bootstrap 5 HTML Laravel Free Admin Template",
     "templateVersion" => "1.1.0",
     "templateFree" => true,

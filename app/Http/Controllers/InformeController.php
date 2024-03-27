@@ -35,6 +35,13 @@ class InformeController extends Controller
       return view('monitores.informes.informe_de_resultados');
     }
 
+    public function informePDF(Request $resquest){
+        $pdf = Pdf::loadView('monitores.informes.informe_de_Resultados_pdf')
+          ->setPaper('letter','portrait');
+        return $pdf->stream();
+
+    }
+
   public function InyectorInfo(Request $request)
   {
     $clave = $request->input('clave');

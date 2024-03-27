@@ -76,8 +76,8 @@ Route::middleware('auth')->group(function () {
 
   Route::get('monitoreo/reportes/informe',[InformeController::class,'informe'])->name('reporte.informe');
   Route::get('monitoreo/reportes/informe/create',[InformeController::class,'informeView'])->name('reporte.informeView');
-
   Route::post('monitoreo/reportes/informe/buscar',[InformeController::class,'InyectorInfo'])->name('buscar.InyectorInfo');
+  Route::get('monitoreo/reportes/informe/pdf',[InformeController::class,'informePDF'])->name('informe.pdf');
 });
 
 

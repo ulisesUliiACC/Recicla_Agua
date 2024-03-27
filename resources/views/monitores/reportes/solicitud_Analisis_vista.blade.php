@@ -63,7 +63,7 @@
           <td>CARACTERISTICAS</td>
         </tr>
         <tr class="spacer-row">
-          <td class="empty-cell">Carahlo</td>
+          <td class="empty-cell"></td>
           <td class="empty-cell"></td>
           <td class="empty-cell"></td>
           <td class="empty-cell"></td>
