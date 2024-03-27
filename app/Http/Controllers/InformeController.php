@@ -40,6 +40,7 @@ class InformeController extends Controller
           ->setPaper('letter','portrait');
         return $pdf->stream();
 
+
     }
 
   public function InyectorInfo(Request $request)
