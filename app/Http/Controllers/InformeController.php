@@ -47,7 +47,7 @@ class InformeController extends Controller
   {
     $clave = $request->input('clave');
     $empresa = Empresa::where('clave', $clave)
-      ->select('atencion','direccion','numero',)
+      ->select('atencion','industria','direccion','numero',)
       ->first();
     // Devolver los datos de la empresa en formato JSON
     return response()->json(['empresa' => $empresa]);
