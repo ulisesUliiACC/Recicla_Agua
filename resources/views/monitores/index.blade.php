@@ -9,7 +9,7 @@
     <div class="card">
         <h5 class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                Lista de usuario
+                Lista   de usuario
 
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal" @can('crear-usuario') @else disabled @endcan>
                     Nuevo Usuario

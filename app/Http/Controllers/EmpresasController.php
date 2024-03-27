@@ -16,19 +16,16 @@ class EmpresasController extends Controller
     public function reportes()
     {
       $modal = false;
-      $parametros = Parametro::all();
+      $parametros = Parametro::paginate(10);
       return view ('monitores.reportes.reportes',compact('modal','parametros'));
     }
 
   public function buscar(Request $request)
   {
     $clave = $request->input('clave');
-
-
     $empresa = Empresa::where('clave', $clave)
       ->select('clave', 'horas', 'descarga_a', 'tipo', 'industria')
       ->first();
-
     // Devolver los datos de la empresa en formato JSON
     return response()->json(['empresa' => $empresa]);
   }

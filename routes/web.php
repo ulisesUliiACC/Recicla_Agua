@@ -72,7 +72,12 @@ Route::middleware('auth')->group(function () {
   /* Reportes && solicitudes */
 
   Route::get('/monitoreo/reportes/solicitud',[InformeController::class,'solicitud'])->name('solicitud');
+  Route::get('/monitoreo/reportes/solcitud',[InformeController::class,'viewSolicitud'])->name('solicitud.viewSolicitud');
 
+  Route::get('monitoreo/reportes/informe',[InformeController::class,'informe'])->name('reporte.informe');
+  Route::get('monitoreo/reportes/informe/create',[InformeController::class,'informeView'])->name('reporte.informeView');
+
+  Route::post('monitoreo/reportes/informe/buscar',[InformeController::class,'InyectorInfo'])->name('buscar.InyectorInfo');
 });
 
 

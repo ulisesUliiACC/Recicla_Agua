@@ -80,13 +80,12 @@
     <label for="clave">Clave:</label>
     <input type="text" name="clave" required>
     <button type="submit" class="btn btn-success">Buscar</button>
+    <button type="button" class="btn btn-primary">Reportar Datos</button>
     <div class="float-end">
-      <button type="button" class="btn btn-success">Crear Reporte</button>
+      <button type="button" class="btn btn-success" onclick="window.location='{{ route('solicitud.viewSolicitud') }}'">Crear Reporte</button>
     </div>
     <br>
   </form>
-
-
   <br>
   <!-- Bootstrap Table with Caption -->
   <div class="card">

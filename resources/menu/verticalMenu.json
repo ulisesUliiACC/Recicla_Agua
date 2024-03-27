@@ -28,10 +28,16 @@
       "menuHeader": "Parametros"
     },
     {
-      "name": "parametros de solicitud",
+      "name": "parametros de solicitud  de Analisis de laboratorio",
       "icon": "menu-icon bx bxs-report bx-tada",
       "slug": "cards-basic",
       "url": "/monitores/reportes"
+    },
+    {
+      "name": "informe de resultadoss",
+      "icon": "menu-icon bx bxs-report bx-tada",
+      "slug": "cards-basic",
+      "url": "/monitoreo/reportes/informe "
     },
     {
       "menuHeader": "Reportes"
@@ -41,13 +47,6 @@
       "icon": "menu-icon bx bxs-report bx-tada",
       "slug": "cards-basic",
       "url": "/monitores/reportes"
-    },
-
-    {
-      "url": "/monitores/croquis",
-      "icon": "menu-icon bx bx-map-alt",
-      "name": "Croquis",
-      "slug": "tables-datatables"
     },
     {
       "menuHeader": "Roles y Permisos"

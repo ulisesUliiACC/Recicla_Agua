@@ -30,6 +30,7 @@ $<!doctype html>
     .mediciones table td {
       border: 1px solid #000000;
       height: 13px;
+
     }
 
     .mediciones table td.borde-blanco {
@@ -101,15 +102,16 @@ $<!doctype html>
       font-size: 70%;
       width: 70px;
     }
-    .parametros{
-      font-size: 70%;
-      text-align: center
-    }
+
     .supervi{
       font-size: 70%;
     }
     .invisible{
       border: 1px solid white;
+    }
+    .parametros{
+      font-size: 70%;
+      text-align: center
     }
     .parametros1{
       font-size: 70%;
@@ -117,6 +119,7 @@ $<!doctype html>
     }
     .parametros2{
       font-size: 70%;
+
     }
   </style>
 
@@ -131,7 +134,6 @@ $<!doctype html>
 <div class="fo">FO-012-C2</div>
 <div class="folio">Folio: __________________</div>
 <div class="title1">SOLICITUD DE ANÁLISIS AL LABORATORIO</div>
-
 <div class="mediciones">
   <table>
     <tr>
@@ -140,11 +142,13 @@ $<!doctype html>
     </tr>
     <tr>
       <td colspan="7" class="borde-blanco"></td>
-      <td colspan="3" class="parametros2">DETERMINAR:</td>
+      <td colspan="2" class="parametros2">DETERMINAR:</td>
+      <td></td>
     </tr>
     <tr>
       <td colspan="7" class="borde-negro"></td>
-      <td colspan="3" class="parametros2">NO DETERMINAR:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_ _</td>
+      <td colspan="2" class="parametros2">NO DETERMINAR:</td>
+      <td style="text-align: center">--</td>
     </tr>
     <tr>
       <th rowspan="3" class="marcar">PARÁMETRO</th>
@@ -163,537 +167,520 @@ $<!doctype html>
     </tr>
     <tr>
       <td></td>
+      <td style="text-align: center">--</td>
       <td></td>
+      <td style="text-align: center">--</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td style="text-align: center">--</td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">DBO5 (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">DQO (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">SST (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">ST (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">G y A 1 (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">G y A 2 (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">G y A 3 (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">G y A 4 (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">G y A 5 (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">G y A 6 (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">G y A PP (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">SAAM (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">NOK (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">NAK (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">NTK (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">FENOL (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">COLOR (U pt-Co)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Cr+6 (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">CN-</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">P-T</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Cu (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Ni (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Cd (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Zn (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Pb (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Cr (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Fe (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Ag (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Al (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Hg (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">As (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">Se (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">B (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">COLIFORMES FECALES NMP(100))</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">COLIFORMES TOTALES</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">pH</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
-    </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">SDT (mg/L)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">SSe (mg/L)</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
-
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">CONDUCTIVIDAD (uS/cm)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
 
     </tr>
-    <tr>
+    <tr style="text-align: center">
       <td class="parametros">ALCALINIDAD</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
     </tr>
     <tr>
       <th colspan="5">INGRESA MUESTRAS AL LABORATORIO</th>
