@@ -163,11 +163,11 @@ $<!doctype html>
     </tr>
     <tr>
       <td></td>
+      <td>DE LA MUESTRA</td>
       <td></td>
+      <td>DE LA MUESTRA</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>DE LA MUESTRA</td>
 
     </tr>
     <tr>
