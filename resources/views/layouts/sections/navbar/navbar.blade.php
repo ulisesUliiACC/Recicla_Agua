@@ -42,12 +42,6 @@ $navbarDetached = ($navbarDetached ?? '');
         </div>
         <!-- /Search -->
         <ul class="navbar-nav flex-row align-items-center ms-auto">
-
-          <!-- Place this tag where you want the button to render. -->
-          <li class="nav-item lh-1 me-3">
-            <a class="github-button" href="https://github.com/themeselection/sneat-html-laravel-admin-template-free" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themeselection/sneat-html-laravel-admin-template-free on GitHub">Star</a>
-          </li>
-
           <!-- User -->
           <li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -65,7 +59,7 @@ $navbarDetached = ($navbarDetached ?? '');
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <span class="fw-medium d-block">John Doe</span>
+                      <span class="fw-medium d-block">{{ Auth::user()->name }}</span>
                       <small class="text-muted">Admin</small>
                     </div>
                   </div>
@@ -75,9 +69,9 @@ $navbarDetached = ($navbarDetached ?? '');
                 <div class="dropdown-divider"></div>
               </li>
               <li>
-                <a class="dropdown-item" href="javascript:void(0);">
+                <a class="dropdown-item" href="{{route('profile.edit')}}">
                   <i class="bx bx-user me-2"></i>
-                  <span class="align-middle">My Profile</span>
+                  <span class="align-middle">Perfil</span>
                 </a>
               </li>
               <li>
@@ -99,10 +93,15 @@ $navbarDetached = ($navbarDetached ?? '');
                 <div class="dropdown-divider"></div>
               </li>
               <li>
-                <a class="dropdown-item" href="javascript:void(0);">
+                <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                <a class="dropdown-item" href="route('logout')"
+                onclick="event.preventDefault();
+                      this.closest('form').submit();">
                   <i class='bx bx-power-off me-2'></i>
-                  <span class="align-middle">Log Out</span>
+                  <span class="align-middle">Salir</span>
                 </a>
+              </form>
               </li>
             </ul>
           </li>

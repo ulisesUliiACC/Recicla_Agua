@@ -1,5 +1,5 @@
 {
-  "name": "sneat-bootstrap-html-laravel-admin-template-free",
+  "name": "recicla_agua",
   "version": "1.1.1",
   "private": true,
   "scripts": {
@@ -92,6 +92,7 @@
     "highlight.js": "11.8.0",
     "jquery": "3.7.0",
     "masonry-layout": "4.2.2",
-    "perfect-scrollbar": "1.5.5"
+    "perfect-scrollbar": "1.5.5",
+    "sweetalert2": "^11.10.5"
   }
 }
