@@ -35,6 +35,9 @@
   <button type="button" class="button1" onclick="window.location='{{ route('solicitud') }}'">Guardar en PDF</button>
   <img src="Logo.jpg" alt="Logo " class="image">
 </header>
+</body>
+</html>
+
 <main>
   <section class="hoja-campo">
     <form id="searchForm">

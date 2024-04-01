@@ -13,7 +13,6 @@
             <div class="card">
                 <div class="card-body">
                     <div class="app-brand justify-content-center">
-<<<<<<< HEAD
                         <span class="app-brand-logo demo">
                             <img src="assets\img\icons\brands\reci.png" alt="Descripción de la imagen">
                         </span>
@@ -21,7 +20,6 @@
                     </div>
                     <h4 class="mb-2">Bienvenido a ReciclaguaS</h4>
                     <p class="mb-4">Por favor, inicie sesión:</p>
-=======
                         <a href="{{ url('/') }}" class="app-brand-link gap-2">
                             <span class="app-brand-logo demo">@include('_partials.macros', ["width" => 25, "withbg" => 'var(--bs-primary)'])</span>
                             <span class="app-brand-text demo text-body fw-bold">{{ config('variables.templateName') }}</span>
@@ -29,8 +27,6 @@
                     </div>
                     <h4 class="mb-2">Bienvenido a recicla agua</h4>
                     <p class="mb-4">Por favor, inicie sesión:</p>
-
->>>>>>> ulii-uwu
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="mb-3">
@@ -42,11 +38,8 @@
                             <div class="d-flex justify-content-between">
                                 <label class="form-label" for="password">Contraseña</label>
                                 <a href="{{ url('auth/forgot-password-basic') }}">
-<<<<<<< HEAD
-=======
                                     <small>¿Olvidaste tu contraseña?</small>
                                 </a>
->>>>>>> ulii-uwu
                             </div>
                             <div class="input-group input-group-merge">
                                 <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
