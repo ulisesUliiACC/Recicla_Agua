@@ -126,7 +126,7 @@ $<!doctype html>
 <body>
 <!--<div class="borde">-->
 <div class="image-container">
-  <img src="assets\reci.png" alt="" width="80px" height="45px">
+  <img src="assets\img\logos\Logo.jpg" alt="" width="80px" height="45px">
 </div>
 <div class="fo">FO-012-C2</div>
 <div class="folio">Folio: __________________</div>

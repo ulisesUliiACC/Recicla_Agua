@@ -11,37 +11,69 @@
 <header>
   <h1>Reciclagua EDOMEX</h1>
   <h2>ESTADO DE MÉXICO</h2>
-  <label for="nombre" class="label-left">Clave de Empresa</label>
-  <input type="text" id="nombre" name="nombre" class="input-left" placeholder="...">
-  <button type="button" class="button">Buscar</button>
+  <section class="hoja-campo">
+    <!-- Tus formularios para ingresar la clave de empresa -->
+    <form id="searchForm1" onsubmit="return transferirMuestra(event, 1)">
+      <label for="clave1" class="label-left">Clave de Empresa 1</label>
+      <input type="text" id="clave1" name="clave" class="input-left" placeholder="...">
+      <button type="submit" class="button">Buscar</button>
+    </form>
+
+    <form id="searchForm2" onsubmit="return transferirMuestra(event, 2)">
+      <label for="clave2" class="label-left">Clave de Empresa 2</label>
+      <input type="text" id="clave2" name="clave" class="input-left" placeholder="...">
+      <button type="submit" class="button">Buscar</button>
+    </form>
+
+    <form id="searchForm3" onsubmit="return transferirMuestra(event, 3)">
+      <label for="clave3" class="label-left">Clave de Empresa 3</label>
+      <input type="text" id="clave3" name="clave" class="input-left" placeholder="...">
+      <button type="submit" class="button">Buscar</button>
+    </form>
+  <br>
+  <br>
   <button type="button" class="button1" onclick="window.location='{{ route('solicitud') }}'">Guardar en PDF</button>
   <img src="Logo.jpg" alt="Logo " class="image">
 </header>
+</body>
+</html>
+
 <main>
   <section class="hoja-campo">
-    <label for="nombre" class="label-left">Numero de Empresa</label>
-    <select name="numenter">
-      <option value="nada" disabled selected>Selecciona Numero</option>
-      <option value="valor-em1" class="verde1">240</option>
-      <option value="valor-em2" class="azul">240-2</option>
-      <option value="valor-em3" class="verde2">194</option>
-    </select>
+    <form id="searchForm">
+      <label for="clave" class="label-left">Clave de Empresa 1</label>
+      <input type="text" id="clave" name="clave" class="input-left" placeholder="...">
+      <button type="submit" class="button">Buscar</button>
+    </form>
+
+    <form id="searchForm">
+
+      <label for="clave" class="label-left">Clave de Empresa 2</label>
+      <input type="text" id="clave" name="clave" class="input-left" placeholder="...">
+      <button type="submit" class="button">Buscar</button>
+    </form>
+
+    <form id="searchForm">
+      <label for="clave" class="label-left">Clave de Empresa 3</label>
+      <input type="text" id="clave" name="clave" class="input-left" placeholder="...">
+      <button type="submit" class="button">Buscar</button>
+    </form>
+<br>
+
     <label for="nombre" class="label-left">Numero de Grasas</label>
+    <br>
     <select name="fruits">
       <option value="nada" disabled selected>Selecciona Numero</option>
       <option value="valor-num1" class="verde1">5</option>
       <option value="valor-num2" class="azul">1</option>
       <option value="valor-num3" class="verde2">6</option>
     </select>
-    <label for="nombre" class="label-left">Lista de Colores</label>
-    <select name="fruits">
-      <option value="nada" disabled selected>Selecciona Numero</option>
-      <option value="valor-col1" class="verde1">liquido turbio de color morado</option>
-      <option value="valor-col2" class="azul">liquido cristalino de color café</option>
-      <option value="valor-col3" class="verde2">liquido turbio de color anaranjado</option>
-    </select>
+  </p>
     <button type="button" class="button2">Insertar</button>
+  
     <!--<h4 class="ficha"><b>FO-012-C2</b></h4>-->
+    <br>
+    <br>
     <h4 class="ficha">Folio:__________________</h4>
     <h3>SOLICITUD DE ANALISIS AL LABORATORIO</h3>
     <div class="mediciones">
